@@ -29,7 +29,8 @@ export default {
   name: "GadgetList",
   components: {
     GadgetItem,
-    GadgetItemEditor
+    GadgetItemEditor,
+    GadgetAdd
   },
   data() {
     return {
@@ -61,16 +62,17 @@ export default {
         .then(response => (this.gadgetItems = response.data));
     },
     deleteGadget(gadgetId) {
-      axios
-        .delete(
-          "https://gadgetlibraryfunctions.azurewebsites.net/api/gadgets/" +
-            gadgetId +
-            "?code=dPuq55Cwzh78DPe818yjdKhodMTqQAEZi/h8VcfDpKjM0ug8vjqzHQ=="
-        )
-        .then(response => {
-          console.log(response);
-          this.fetchGadgets();
-        });
+      console.log(gadgetId);
+      // axios
+      //   .delete(
+      //     "https://gadgetlibraryfunctions.azurewebsites.net/api/gadgets/" +
+      //       gadgetId +
+      //       "?code=dPuq55Cwzh78DPe818yjdKhodMTqQAEZi/h8VcfDpKjM0ug8vjqzHQ=="
+      //   )
+      //   .then(response => {
+      //     console.log(response);
+      //     this.fetchGadgets();
+      //   });
     },
     onAddClick() {
       this.addGadgetMode = !this.addGadgetMode;
